@@ -35,7 +35,7 @@ function UploadPreview(opt) {
     //删除按钮
     var del = document.createElement('div');
     var delClass = getRandomChar(4);
-    del.innerHTML = 'X';
+    del.innerHTML = '✖';
     del.className = delClass;
 
     //图片对象
@@ -48,7 +48,7 @@ function UploadPreview(opt) {
     //提示对象
     var info = document.createElement('span');
     info.innerHTML = '最多' + max + '张';
-    info.style.cssText = 'color: red;font-size: 11px;line-height:27px;display:none';
+    info.style.cssText = 'color: red;iconfont-size: 11px;line-height:27px;display:none';
     upImgBtn.appendChild(info);
 
     //上传事件
@@ -72,7 +72,7 @@ function UploadPreview(opt) {
     function inpChange() {
         //文件名
         var fileName = this.value;
-        if (!fileName.match(/.jpg|.gif|.png|.bmp/i)) {
+        if (!fileName.match(/.jpg|.gif|.png|.bmp|.ico/i)) {
             alert('您上传的图片格式不正确，请重新选择');
         } else {
 
@@ -157,7 +157,7 @@ function UploadPreview(opt) {
         '#' + uploadBtn,
         'border:2px dashed #ccc;' +
         'color:#ccc;' +
-        'font-size: 48px;' +
+        'iconfont-size: 48px;' +
         'width:70px;' +
         'height: 70px;' +
         'line-height: 70px;' +
