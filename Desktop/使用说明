@@ -1,0 +1,48 @@
+前端输入验证函数提交函数
+
+第一步：
+<script type="text/javascript" src="Desktop.class.js"></script>
+
+第二步：
+new Desktop({
+    icon: {
+        systemSet: {                //桌面图标id
+            name: '系统设置',        //图标名称
+            path: 'app1.php',       //页面路径
+            width: 1000,            //窗口宽度
+            height: 700             //窗口高度
+        },
+        webSet: {
+            name: '网站设置',
+            path: 'webSet.xhtml',
+            width: 1000,
+            height: 600
+        },
+        analysis:{
+            name:'数据分析',
+            path:'analysis.xhtml',
+            width:1200,
+            height:750
+        },
+        employee: {
+            name: '员工管理',
+            path: 'employeeManage.php',
+            width: 800,
+            height: 600
+        },
+        work: {
+            name: '考勤管理',
+            path: 'employeeManage.php',
+            width: 600,
+            height: 300
+        },
+        finance: {
+            name: '网盘',
+            path: 'employeeManage.php',
+            width: 600,
+            height: 300
+        }
+    },
+    img: '<?=$PRI_RES?>/img',       //桌面背景图
+    im:'im_win.xhtml'               //聊天页面
+});

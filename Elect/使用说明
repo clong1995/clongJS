@@ -1,0 +1,30 @@
+前端输入验证函数提交函数
+
+第一步：
+<script type="text/javascript" src="Elect.class.js"></script>
+
+第二步：
+new Elect();
+
+第三部步：
+
+elect.appendElect({
+    name: 'sort',   //对应input的name属性，同时是容器的id
+    type: 'text',   //对应input的type属性，支持select，text，textarea，radio，checkbox
+    title: '排序',   //对应input的titile属性
+    check: '1-2'    //输入验证
+});
+
+
+elect.appendElect({
+    name: 'brand',
+    type: 'select',
+    title: '品牌',
+    check: '1-2',
+    elect: {                //多元素属性
+                value:name,
+                value:name,
+                value:name,
+                value:name
+            }
+});

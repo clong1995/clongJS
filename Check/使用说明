@@ -1,0 +1,10 @@
+前端输入验证函数提交函数
+
+第一步：
+<script type="text/javascript" src="Check.class.js"></script>
+
+第二步：
+var check = new Check();
+
+第三步：
+

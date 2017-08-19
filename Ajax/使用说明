@@ -1,0 +1,34 @@
+Ajax提交函数
+
+第一步：
+<script type="text/javascript" src="Ajax.class.js"></script>
+
+第二步：
+var ajax = new Ajax();
+
+第三步：
+
+ajax.post({                         //POST提交
+   async: true,                     //异步
+   url: '/test.php',                //接受地址
+   data: {                          //数据
+       id: '950919',
+       name: '于成龙'
+   },
+   success: function (response) {   //响应
+       alert(response);
+   }
+});
+
+
+ajax.get({                          //GET提交
+   async: true,
+   url: '/test.php',
+   data: {
+       id: '950919',
+       name: '于成龙'
+   },
+   success: function (response) {
+       alert(response);
+   }
+});
