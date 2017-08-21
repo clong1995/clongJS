@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生js桌面</title>
+</head>
+<body>
+
+</body>
+<!-- 引入桌面类 -->
+<script type="text/javascript" src="../Desktop.class.js"></script>
+<!-- 填写桌面信息 -->
+<script type="text/javascript">
+    new Desktop({
+        icon: {
+            systemSet: {
+                name: '系统设置',
+                path: './page/app.html',
+                width: 1000,
+                height: 700
+            },
+            webSet: {
+                name: '网站设置',
+                path: './page/webSet.html',
+                width: 1000,
+                height: 600
+            },
+            analysis: {
+                name: '数据分析',
+                path: './page/analysis.html',
+                width: 1200,
+                height: 750
+            },
+            employee: {
+                name: '员工管理',
+                path: './page/employeeManage.html',
+                width: 800,
+                height: 600
+            },
+            work: {
+                name: '考勤管理',
+                path: './page/employeeManage.html',
+                width: 600,
+                height: 300
+            },
+            finance: {
+                name: '网盘',
+                path: './page/employeeManage.html',
+                width: 600,
+                height: 300
+            }
+        },
+        img: './img',
+        im: 'im_win.xhtml'
+    });
+</script>
+</html>

@@ -28,7 +28,7 @@ function Desktop(opt) {
 
     //程序图标
     var appList = {};
-    var appLen = 1;
+    var appLen = 0;//1;
     for (var j in opt.icon) {
         appLen++;
         //重构appList
@@ -44,6 +44,7 @@ function Desktop(opt) {
         dock.appendChild(app);
     }
 
+    /*
     //默认就有公司通讯
     var im = document.createElement('div');
     im.innerHTML = "消息";
@@ -66,7 +67,7 @@ function Desktop(opt) {
     msg.style.cssText="background:red;font-size:10px;letter-spacing:0;position:absolute;top:0;right:5px;display:block;width:17px;height:17px;line-height:17px;border-radius:50%";
     im.appendChild(msg);
     msg.innerHTML = '5';
-
+    */
 
     //设置dock布局样式表
     var dockWidth = (appWidth + 5 * 2) * appLen;
@@ -145,6 +146,11 @@ function Desktop(opt) {
             sheet.addRule(selector, rules, -1);
     }
 
+
+    var contentClass = getRandomChar();
+    var titleClass = getRandomChar();
+    var shadeIfrClass = getRandomChar();
+
     function winPop(winOpt) {
 
         /*{
@@ -157,14 +163,23 @@ function Desktop(opt) {
 
         //窗体
         var win = document.createElement('div');
+
+
+
         //标题
         var title = document.createElement('h3');
+        title.className = titleClass;
 
         //主体
         var content = document.createElement('div');
+        content.className = contentClass;
 
         //关闭
         var close = document.createElement('span');
+
+        //遮挡iframe防止鼠标离开body
+        var shadeIfr = document.createElement('div');
+        shadeIfr.className = shadeIfrClass;
 
         //设置标题
         title.innerHTML = winOpt.title;
@@ -179,6 +194,8 @@ function Desktop(opt) {
         title.onmousedown = function (e) {
 
             this.parentNode.style.zIndex = ++winCount;
+
+            this.parentNode.appendChild(shadeIfr);
 
             var e = window.event || e;
 
@@ -196,8 +213,9 @@ function Desktop(opt) {
         };
 
         //解除移动
-        title.onmouseup = function () {
+        body.onmouseup = function () {
             body.onmousemove = null;
+            win.removeChild(shadeIfr);
         }
 
         //关闭动作
@@ -284,7 +302,7 @@ function Desktop(opt) {
 
     //设置标题布局
     addCSSRule(
-        '.' + winClass + " h3",
+        '.' + titleClass,
         'text-align:center;' +
         'width:100%;' +
         'height:30px;' +
@@ -307,7 +325,7 @@ function Desktop(opt) {
 
     //设置主体布局
     addCSSRule(
-        '.' + winClass + " div",
+        '.' + contentClass,
         'width:100%;' +
         'height:100%;' +
         'background:#fff;'
@@ -315,7 +333,7 @@ function Desktop(opt) {
 
     //设置标题布局
     addCSSRule(
-        '.' + winClass + " h3 span",
+        '.' + titleClass + " span",
         'color:red;' +
         'font-size:24px;' +
         'cursor:pointer;' +
@@ -326,9 +344,19 @@ function Desktop(opt) {
 
     //设置iframe布局
     addCSSRule(
-        '.' + winClass + " iframe",
+        '.' + contentClass + " iframe",
         'width:100%;' +
         'height:100%;' +
         'border:none;'
+    );
+
+    //设置iframe布局
+    addCSSRule(
+        '.' + shadeIfrClass,
+        'width:100%;' +
+        'height:100%;' +
+        'position:absolute;'+
+        'top:0;'+
+        'left:0;'
     );
 }
